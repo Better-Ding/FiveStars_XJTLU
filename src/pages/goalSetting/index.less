@@ -1,6 +1,7 @@
 .index{
     margin: 20px;
     position: relative;
+    height: 100vh;
 }
 
 .bookCard{
@@ -24,6 +25,7 @@
         padding: 10px;
         margin-left: 30px;
         .bookName{
+            display: flex;
             font-weight: bold;
         }
         .schedule{
@@ -40,4 +42,26 @@
             margin-top: 10px;
         }
     }
+}
+
+.changeModule{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+    color: #C0C0C0;   
+    Text{
+        margin-left: 10px;
+        font-size: 0.7rem;
+        font-weight: 400;
+    }
+}
+
+.saveBtn{
+    position: absolute;
+    // position: fixed;
+    width: 100%;
+    bottom: 3rem;
+    padding: 10px;
+
 }
