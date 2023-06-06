@@ -1,7 +1,7 @@
 import Taro from '@tarojs/taro'
 import { Component, PropsWithChildren } from 'react'
 import { View, Text, Image} from '@tarojs/components'
-import { AtIcon, AtGrid } from 'taro-ui'
+import { AtIcon, AtGrid, AtFab} from 'taro-ui'
 import './index.less'
 
 export default class Index extends Component<PropsWithChildren> {
@@ -14,7 +14,7 @@ export default class Index extends Component<PropsWithChildren> {
         [
            {
              image: require('../../static/images/listen.png'),
-             value: 'Listen'
+             value: 'Listening'
            },
            {
              image: require('../../static/images/speak.png'),
@@ -34,7 +34,7 @@ export default class Index extends Component<PropsWithChildren> {
         [
            {
              image: require('../../static/images/battle.png'),
-             value: 'Words Battle'
+             value: 'Word Battle'
            },
            {
              image: require('../../static/images/quiz.png'),
@@ -42,7 +42,7 @@ export default class Index extends Component<PropsWithChildren> {
            },
            {
             image: require('../../static/images/game.png'),
-            value: 'Class Game'
+            value: 'Class Activity'
           },
          ]
        } />
@@ -104,6 +104,12 @@ export default class Index extends Component<PropsWithChildren> {
   render () {
     return (
       <View className='index'>
+        <View className='FabIcon'>
+          <AtFab>
+            <Text className='at-fab__icon at-icon at-icon-add'></Text>
+          </AtFab>
+        </View>
+
         <this.moudles />
         {/* 每日文章 */}
         <this.todayReadings></this.todayReadings>
