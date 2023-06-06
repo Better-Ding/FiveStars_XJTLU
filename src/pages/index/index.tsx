@@ -6,17 +6,18 @@ import './index.less'
 
 export default class Index extends Component<PropsWithChildren> {
   url =  '../'
-
-  // state={
-  //   name:'开始背单词吧!'
-  // }
-
-
+  // 学生卡片，包括学生信息和单词背诵水平
   studentCard(){
     function goGoalSetting(){
-    
       Taro.navigateTo({
         url: "/pages/goalSetting/index"
+      })
+    }
+
+    function goWordBank(){
+    
+      Taro.navigateTo({
+        url: "/pages/wordBank/index"
       })
     }
     return(
@@ -25,10 +26,10 @@ export default class Index extends Component<PropsWithChildren> {
         <View className='studentInfo'>
           <AtAvatar circle image='http://storge.ddbouldering.cn/%E5%A4%B4%E5%83%8F%20%E7%94%B7%E5%AD%A9.png' size='large'></AtAvatar>
           <View className='info'>
-            <view className='userName'>Admin</view>
+            <view className='userName'>ZiXuan</view>
             <View className='userid'>ID: 123456</View>
           </View>
-          <View className='calendar'>
+          <View className='calendar' onClick={goWordBank}>
             <Text>
               Word Bank
             </Text>
@@ -42,7 +43,7 @@ export default class Index extends Component<PropsWithChildren> {
         <View className='englishContent'>
           <View className='bookInfo'>
             <View className='bookName'>
-              EAP105
+              EAP033
             </View>
             <View className='edit'>
               <View onClick={goGoalSetting}>
@@ -62,7 +63,7 @@ export default class Index extends Component<PropsWithChildren> {
               666 / 3272
             </View>
             <View className='remainDays'>
-              Remain 100 days
+              100 days remaining 
             </View>
           </View>
         </View>
@@ -80,7 +81,7 @@ export default class Index extends Component<PropsWithChildren> {
         <View className='goalContent'>
           <View className='newWords'>
             <Text>
-              10
+              15
             </Text>
             <View className='tips'>
               New
@@ -89,7 +90,7 @@ export default class Index extends Component<PropsWithChildren> {
           </View>
           <View className='newWords'>
             <Text>
-              0
+              10
             </Text>
             <View className='tips'>
               Review
@@ -98,10 +99,10 @@ export default class Index extends Component<PropsWithChildren> {
           </View>
           <View className='newWords'>
             <Text>
-              10
+              25
             </Text>
             <View className='tips'>
-            UnLearned
+            Total
             </View>
             
           </View>
@@ -111,13 +112,20 @@ export default class Index extends Component<PropsWithChildren> {
   }
 
   startWords(){
+
+    function goWordQuiz(){
+      Taro.navigateTo({
+        url: "/pages/wordTest/index"
+      })
+    }
+
     return(
 
       <View className='startWords'>
-        <AtButton  type='primary' circle >
+        <AtButton  type='primary' circle onClick={goWordQuiz} >
           
           <View className='Start'>
-          Start Memorize !
+          Start Quiz !
           </View>
 
         </AtButton>
