@@ -5,6 +5,9 @@ export default defineAppConfig({
     'pages/personal/index',
     'pages/articleDetails/index',
     'pages/goalSetting/index',
+    'pages/moduleChange/index',
+    'pages/wordTest/index',
+    'pages/wordBank/index',
   ],
   window: {
     backgroundTextStyle: 'light',
