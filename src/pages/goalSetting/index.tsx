@@ -1,13 +1,38 @@
 import Taro from '@tarojs/taro'
 import { Component, PropsWithChildren } from 'react'
-import { View,Text} from '@tarojs/components'
+import { View,Text, PickerView, PickerViewColumn} from '@tarojs/components'
 import { AtProgress,AtIcon,AtButton} from 'taro-ui'
 import './index.less'
-
 export default class Index extends Component<PropsWithChildren> {
-  
 
+  constructor () {
+    super(...arguments)
+    const remainWords = 3272;
+    const days = []
+    const remainDays = []
+    for (let i = 1; i <= 50; i++) {
+      const data = [i*5, parseInt(remainWords/(i*5))]
+      days.push(data)
+    }
 
+    this.state = {
+      remainDays: remainDays,
+      days: days,
+      day:days[0][0],
+      remainDay:100,
+      value: [20],
+    }
+  }
+
+  onChange = e => {
+    const val = e.detail.value
+    console.log(this.state.days[val[0]])
+    this.setState({
+      remainDay: this.state.days[val[1]],
+      day: this.state.days[val[0]],
+      value: val
+    })
+  }
 
   bookCard(){
     function goChangeModule(){
@@ -44,16 +69,6 @@ export default class Index extends Component<PropsWithChildren> {
     )
   }
 
-  // ScrollableContainer() {
-  //   return (
-  //     <Picker>
-  //       <AtList>
-  //         <AtListItem title='标题文字' extraText='详细信息' />
-  //         <AtListItem title='禁用状态' disabled extraText='详细信息' />
-  //       </AtList>
-  //     </Picker>
-  //   );
-  // }
 
   render () {
     function goBackToMain(){
@@ -64,9 +79,30 @@ export default class Index extends Component<PropsWithChildren> {
     return (
       <View className='index'>
         <this.bookCard></this.bookCard>
-        {/* <this.ScrollableContainer>
-         
-        </this.ScrollableContainer> */}
+
+        <View className='goalPicker'>
+          <View>
+            {/* {this.state.day} */}
+          </View>
+          <PickerView indicatorStyle='height: 50px;' style='width: 100%; height: 300px;' value={this.state.value} onChange={this.onChange}>
+            <PickerViewColumn className='pickerContainer'>
+              {this.state.days.map(item => {
+                return (
+                  <View className='details'>
+                    <View>{item[0]} Words</View>
+                    <View>{item[1]} Days</View>
+                  </View>
+                );
+              })}
+              {/* {this.state.remainDays.map(item => {
+                return (
+                  <View>{item} Words</View>
+                );
+              })} */}
+            </PickerViewColumn>
+          </PickerView>
+        </View>
+
         <View className='saveBtn'>
           <AtButton type='primary' onClick={goBackToMain}>Save Plan</AtButton>
         </View>
