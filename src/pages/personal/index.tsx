@@ -22,31 +22,21 @@ export default class Index extends Component<PropsWithChildren> {
         <AtList   hasBorder={false}>
           <AtListItem 
            hasBorder={false}
-           title='Calendar'
+           title='Learning Calendar'
            arrow='right' 
            />
+
           <AtListItem 
           hasBorder={false}
-          title='Learning Details' 
-          arrow='right' 
-         
-           />
-          <AtListItem 
-          hasBorder={false}
-          title='Dictionary' 
-          arrow='right'
-            />
-          <AtListItem 
-          hasBorder={false}
-          title='Vocabulary Builder' 
+          title='Word Bank' 
           arrow='right' />
           <AtListItem 
           hasBorder={false}
-          title='Vocabulary test' 
+          title='Vocabulary Test' 
           arrow='right' />
           <AtListItem 
           hasBorder={false}
-          title='Learning setting' 
+          title='Goal Setting' 
           arrow='right'  />
         </AtList>
       </View>
@@ -86,7 +76,7 @@ export default class Index extends Component<PropsWithChildren> {
       <View className='studentInfo'>
         <AtAvatar circle image='http://storge.ddbouldering.cn/%E5%A4%B4%E5%83%8F%20%E7%94%B7%E5%AD%A9.png' size='large'></AtAvatar>
         <View className='info'>
-          <view className='userName'>Admin</view>
+          <view className='userName'>ZiXuan</view>
           <View className='userid'>ID: 123456</View>
         </View>
         <View className='editMyInfo'>
