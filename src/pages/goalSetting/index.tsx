@@ -81,10 +81,14 @@ export default class Index extends Component<PropsWithChildren> {
         <this.bookCard></this.bookCard>
 
         <View className='goalPicker'>
-          <View>
-            {/* {this.state.day} */}
+          <View className='msg'>
+             <View> Plan Words</View>
+             <View> Remain Days</View>
           </View>
-          <PickerView indicatorStyle='height: 50px;' style='width: 100%; height: 300px;' value={this.state.value} onChange={this.onChange}>
+          <View className='Divider'>
+
+          </View>
+          <PickerView indicatorStyle='height: 50px;' style='width: 100%; height: 270px;' value={this.state.value} onChange={this.onChange}> 
             <PickerViewColumn className='pickerContainer'>
               {this.state.days.map(item => {
                 return (
