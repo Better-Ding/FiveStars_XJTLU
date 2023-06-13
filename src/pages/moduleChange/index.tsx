@@ -16,13 +16,13 @@ export default class Index extends Component<PropsWithChildren> {
   handleClick (index) {
     
     const { openList } = this.state;
-
+    // console.log(openList)
     // make other Accordion component close
-    // openList.forEach((_, i) => {
-    //   if (i !== index) {
-    //     openList[i] = false;
-    //   }
-    // });
+    openList.forEach((_, i) => {
+      if (i !== index) {
+        openList[i] = false;
+      }
+    });
 
     // toggle the value for the clicked index
     openList[index] = !openList[index]; 
@@ -49,7 +49,7 @@ export default class Index extends Component<PropsWithChildren> {
           <AtAccordion
           // provide a unique key for each item in the array
             key={index} 
-            open={this.state.openList[index] || false}
+            open = {this.state.openList[index] || false}
             onClick={() => this.handleClick(index)}
             title={module.title}
             icon={{ value: 'tags', color: '#337ecc', size: '19' }}
