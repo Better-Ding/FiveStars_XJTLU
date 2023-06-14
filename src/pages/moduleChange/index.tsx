@@ -14,9 +14,8 @@ export default class Index extends Component<PropsWithChildren> {
     }
   }
   handleClick (index) {
-    
+    console.log(index)
     const { openList } = this.state;
-    // console.log(openList)
     // make other Accordion component close
     openList.forEach((_, i) => {
       if (i !== index) {
@@ -40,8 +39,23 @@ export default class Index extends Component<PropsWithChildren> {
     const ModuleList = [
       { title: 'EAP033', wordLists: ['This is list 1','This is list 2','This is list 3']},
       { title: 'EAP015', wordLists: ['Test 1','Test 2','Test 3', 'Test 4']},
-      { title: 'LAN019', wordLists: ['This is list 1','This is list 2']},
+      // { title: 'LAN019', wordLists: ['This is list 1','This is list 2']},
     ];
+
+    let list = [];
+    for (const key in ModuleList) {
+      let wordList = ModuleList[key].wordLists
+      let tempList = [];
+      for (let i = 0; i < wordList.length; i++) {
+        
+        const desc = wordList[i];
+
+        tempList.push(<AtListItem key={i} title={desc} arrow="right" />);
+      }
+      list.push(tempList);
+     
+    }
+
 
     return (
       <View className="index">
@@ -53,24 +67,14 @@ export default class Index extends Component<PropsWithChildren> {
             onClick={() => this.handleClick(index)}
             title={module.title}
             icon={{ value: 'tags', color: '#337ecc', size: '19' }}
-            style={{ height: "auto" }} 
           >
-          <AtList hasBorder={true}>
-            {module["wordLists"].map((list, listIndex) => (
-
-                  <AtListItem
-                    key={`${index}-${listIndex}`} // provide a unique key for each list item
-                    title={list}
-                    arrow="right"
-                    listIndex={listIndex}
-                    onClick={() => this.clickItem(listIndex)}
-                  />
-                ))
-             
-            }
+          <AtList hasBorder={true} >
+            {list[index]}
           </AtList>
           </AtAccordion>
         ))}
+
+        
       </View>
     )
   }
