@@ -7,5 +7,5 @@ React --- 用于构建用户界面的 JavaScript 库 <br>
 Taro UI -- 是一款基于 Taro 框架开发的多端 UI 组件库
 
 ## 版本已不再更新
-最新Vue版本请前往[这里](https://github.com/ChrisGray0626/EAPVOCAB)
-[线上地址](http://114.55.87.45:10086)
+- 最新Vue版本请前往[这里](https://github.com/ChrisGray0626/EAPVOCAB)
+- [线上地址](http://114.55.87.45:10086)
